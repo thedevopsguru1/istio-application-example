@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: example-tls
+  namespace: project1 #istio-system
+spec:
+  secretName: eboo
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: app.anaeleboo.com
+  dnsNames:
+  - app.anaeleboo.com
+
+#Once we have the certificate created, we should see the secret created in 
+#the istio-system namespace
